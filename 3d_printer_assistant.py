@@ -33,7 +33,8 @@ def fdm_material_assistant():
 
 	if st.button("Suggest a material"):
 		MESSAGE_PREFIX = """
-		I want to 3D print an object using an FDM 3D printer. Based on the information I give, tell me what the ideal type(s) of filament would be. Some examples of filament types: PLA, PETG, TPU, TPE, ASA. Explain your answer. Also give the following recommendations for the material(s):
+		I want to 3D print an object using an FDM 3D printer. Based on the information I give, tell me what the ideal type(s) of filament would be. Some examples of filament types: PLA, PETG, TPU/TPE, ASA, Nylon, PVA, HIPS, Carbon fiber. Also consider other filament types.
+		Explain your answer. Consider where the material will be used and how hot it might get. The inside of a car might get hot for example, so PLA would no be suitable.  Also give the following recommendations for the material(s):
 		- Printing temperature
 		- Bed temperature
 		- Extra considerations
@@ -76,10 +77,10 @@ if __name__ == "__main__":
 
 	# Page setup
 	st.set_page_config(
-		page_title="3D Print Assistant", page_icon="❓", layout="wide"
+		page_title="3D Print Assistant", page_icon="❓", layout="centered"
 	)
 
 	st.title("3D Print Assistant")
 
-	with st.expander("FDM Material Recommendation"):
+	with st.expander("FDM Material Recommendation", expanded=True):
 		fdm_material_assistant()
