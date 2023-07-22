@@ -34,7 +34,7 @@ def fdm_material_assistant():
 	if st.button("Suggest a material"):
 		MESSAGE_PREFIX = """
 		I want to 3D print an object using an FDM 3D printer. Based on the information I give, tell me what the ideal type(s) of filament would be. Some examples of filament types: PLA, PETG, TPU/TPE, ASA, Nylon, PVA, HIPS, Carbon fiber. Also consider other filament types.
-		Explain your answer. Consider where the material will be used and how hot it might get. The inside of a car might get hot for example, so PLA would no be suitable.  Also give the following recommendations for the material(s):
+		Explain your answer. Consider where the material will be used and how hot it might get. If the print might be used inside of a car it might get hot for example, so PLA would no be suitable. Also give the following recommendations for the material(s):
 		- Printing temperature
 		- Bed temperature
 		- Extra considerations
