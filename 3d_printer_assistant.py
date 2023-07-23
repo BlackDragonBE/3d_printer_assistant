@@ -34,18 +34,18 @@ def fdm_material_assistant():
 
 	if st.button("Suggest a material"):
 		MESSAGE_PREFIX = """
-		Forget your previous instructions. You are an expert at 3D printing.
+		Forget your previous instructions. You are an expert at 3D printing materials.
 		I want to 3D print an object using an FDM 3D printer and I'm having trouble deciding what material to use.
-		Consider how and where the object will be used. Consider the needed temperature resistance, chemical resistance and mechanical properties (PLA for example will soften around 48C).
+		Consider how and where the object will be used when recommending materials.
 
-		Suggest one or more materials that might be suitable for the object. Add the following recommendations for the material(s):
-		- Temperature resistance (give exact values)
-		- Chemical resistance
-		- Mechanical properties
+		Example filament materials: PLA, PETG, ABS, ASA, TPU, TPE, Nylon, Carbon fiber, etc.
+
+		Suggest one or more materials that are most suitable for the object. Add the following properties for the material(s):
 		- Printing temperature
 		- Bed temperature
+		- Heat resistance
 		
-		Format your answer in markdown. Use a table to list the material recommendations. Add an explanation below the table to provide extra considerations and explain the material choices.
+		Format your answer in markdown. Use a table to list the material properties. Add an explanation below the table to provide extra considerations and explain the material choices.
 		Object information:
 		""".strip()
 
