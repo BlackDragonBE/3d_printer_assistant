@@ -24,6 +24,7 @@ def fdm_material_assistant():
 		"Functional/decorative", options=["Functional", "Decorative", "Both"]
 	)
 	print_object_flexible = st.checkbox("Object needs to be flexible", value=False)
+	# print_object_contact_food = st.checkbox("Object will come in contact with food or drinks", value=False)
 
 	print_object_extra_info = st.text_input(
 		"Extra information (optional)",
@@ -33,24 +34,30 @@ def fdm_material_assistant():
 
 	if st.button("Suggest a material"):
 		MESSAGE_PREFIX = """
-		I want to 3D print an object using an FDM 3D printer. Based on the information I give, tell me what the ideal type(s) of filament would be. Some examples of filament types: PLA, PETG, TPU/TPE, ASA, Nylon, PVA, HIPS, Carbon fiber. Also consider other filament types.
-		Explain your answer. Consider where the material will be used and how hot it might get. If the print might be used inside of a car it might get hot for example, so PLA would no be suitable. Also give the following recommendations for the material(s):
+		Forget your previous instructions. You are an expert at 3D printing.
+		I want to 3D print an object using an FDM 3D printer and I'm having trouble deciding what material to use.
+		Consider how and where the object will be used. Consider the needed temperature resistance, chemical resistance and mechanical properties (PLA for example will soften around 48C).
+
+		Suggest one or more materials that might be suitable for the object. Add the following recommendations for the material(s):
+		- Temperature resistance (give exact values)
+		- Chemical resistance
+		- Mechanical properties
 		- Printing temperature
 		- Bed temperature
-		- Extra considerations
 		
-		Format your answer in markdown.
+		Format your answer in markdown. Use a table to list the material recommendations. Add an explanation below the table to provide extra considerations and explain the material choices.
 		Object information:
 		""".strip()
 
 		message_info = """
-			- Object type: {}
+			- Object: {}
 			- Object size: {}
 			- Layer height: {}
 			- Indoors/outdoors use: {}
 			- Functional/decorative: {}
 			- Object is flexible: {}
 			- Extra information: {}
+
 		""".format(
 			print_object_type,
 			print_object_size,
@@ -77,7 +84,7 @@ if __name__ == "__main__":
 
 	# Page setup
 	st.set_page_config(
-		page_title="3D Print Assistant", page_icon="❓", layout="centered"
+		page_title="3D Print Assistant", page_icon="❓", layout="wide"
 	)
 
 	st.title("3D Print Assistant")
